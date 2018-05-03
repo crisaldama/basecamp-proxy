@@ -135,7 +135,7 @@ import org.xml.sax.SAXException;
   System.out.println("JSON Payload 2a: " + payload2);
     System.out.println("JSON Payload 3a: " + payload3); 
 
-      URL url = new URL("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=CLIENTID&client_secret=CLIENTSECRET&username=LOGIN&password=PASSWORD");
+      URL url = new URL("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG95NPsF2gwOiPlPuL6H9ogVxz8XlnX2bIeJwHjsLylKmbTzb3onawGbLVKMUTs&client_secret=5774738336908218587&username=tservice@bcmadlegoparking18.demo&password=Salesforce1yab7ZJ4txdYJ9Usj6C7tiART");
       HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
         conn.setDoOutput(true);
         conn.setRequestMethod("POST");
@@ -172,7 +172,7 @@ import org.xml.sax.SAXException;
      // we now have the token
      /////////////// create a row in the Platform Events Object
      System.out.println("JSON Payload: " + payload1);
-     URL url2 = new URL("https://dfcharlie2017.my.salesforce.com/services/data/v40.0/sobjects/ParkingEvent__e/");
+     URL url2 = new URL("https://bcmadlegoparking18.my.salesforce.com/services/data/v40.0/sobjects/ParkingEvent__e/");
       HttpURLConnection conn2 = (HttpURLConnection) url2.openConnection();
       conn2.setDoOutput(true);
       conn2.setRequestMethod("POST");
@@ -202,7 +202,7 @@ import org.xml.sax.SAXException;
      conn2.disconnect();
       
       System.out.println("JSON Payload: " + payload2);
-     URL url3 = new URL("https://dfcharlie2017.my.salesforce.com/services/data/v40.0/sobjects/ParkingEvent__e/");
+     URL url3 = new URL("https://bcmadlegoparking18.my.salesforce.com/services/data/v40.0/sobjects/ParkingEvent__e/");
       HttpURLConnection conn3 = (HttpURLConnection) url3.openConnection();
       conn3.setDoOutput(true);
       conn3.setRequestMethod("POST");
@@ -232,7 +232,7 @@ import org.xml.sax.SAXException;
      conn3.disconnect();
      
       System.out.println("JSON Payload: " + payload3);
-     URL url4 = new URL("https://dfcharlie2017.my.salesforce.com/services/data/v40.0/sobjects/ParkingEvent__e/");
+     URL url4 = new URL("https://bcmadlegoparking18.my.salesforce.com/services/data/v40.0/sobjects/ParkingEvent__e/");
       HttpURLConnection conn4 = (HttpURLConnection) url4.openConnection();
       conn4.setDoOutput(true);
       conn4.setRequestMethod("POST");
