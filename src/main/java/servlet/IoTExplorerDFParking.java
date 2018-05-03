@@ -33,8 +33,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-// Usage: https://iotcgv1.herokuapp.com/IoTExplorer?PlatformEvent=GeneralPurpose__e&SerialNumber__c=12345&ErrorCode__c=ERROR
-
+// Usage: https://murmuring-journey-96800.herokuapp.com/IoTExplorerDFParking?PlatformEvent=GeneralPurpose__e&SerialNumber__c=12345&ErrorCode__c=ERROR
  
    
   @WebServlet(
