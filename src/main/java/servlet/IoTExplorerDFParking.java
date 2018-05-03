@@ -1,4 +1,4 @@
-package apitest;
+package basecampProxy;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -35,7 +35,6 @@ import org.xml.sax.SAXException;
 
 // Usage: https://iotcgv1.herokuapp.com/IoTExplorer?PlatformEvent=GeneralPurpose__e&SerialNumber__c=12345&ErrorCode__c=ERROR
 
-
  
    
   @WebServlet(
@@ -62,7 +61,8 @@ import org.xml.sax.SAXException;
     String payload1;
     String payload2;
     String payload3;
-    SSLContext sc;
+   
+
 
   public void doPost(HttpServletRequest req, HttpServletResponse res)
         throws IOException, ServletException {
@@ -113,13 +113,10 @@ import org.xml.sax.SAXException;
       
       paramcounter++;
     }
-
-    try{
-      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-      DocumentBuilder builder = null;
-      Document doc = null;
-
-    
+    System.out.println("end of params");
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder builder = null;
+    Document doc = null;
     try { 
       builder = factory.newDocumentBuilder();
     }
@@ -127,17 +124,6 @@ import org.xml.sax.SAXException;
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-    String input = "event type not yet defined in heroku app";
-    InputSource is = new InputSource(new StringReader(xml));
-    
-      doc = builder.parse(is);
-      doc.getDocumentElement().normalize();
-      String eventType = doc.getDocumentElement().getNodeName();
-      System.out.println("Automation Type:" + eventType);
-
-     } catch (Exception ex) {
-      ex.printStackTrace();
-    } 
     ///
     ///  create the JSON 
     ////
@@ -149,28 +135,13 @@ import org.xml.sax.SAXException;
   System.out.println("JSON Payload 2a: " + payload2);
     System.out.println("JSON Payload 3a: " + payload3); 
 
-     /***********************************************/ 
-
-  //  try {
-        sc = SSLContext.getInstance("SSL");
-
-  //  } catch (Exception e) {
-  //  e.printStackTrace();
-//    }
-      
-     
-     /***********************************************/
-
-      //HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
       URL url = new URL("https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id=CLIENTID&client_secret=CLIENTSECRET&username=LOGIN&password=PASSWORD");
       HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
         conn.setDoOutput(true);
         conn.setRequestMethod("POST");
         conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        conn.setRequestProperty("Cache-Control", "no-cache");
-        conn.setSSLSocketFactory(sc.getSocketFactory());
+        conn.setRequestProperty("Cache-Control", "no-cache"); 
         conn.connect();
-
        
         if (conn.getResponseCode() != 200) {
             throw new RuntimeException("Failed : HTTP error code : "
@@ -296,7 +267,3 @@ import org.xml.sax.SAXException;
   
   
   }
-
-        
-        
-       
